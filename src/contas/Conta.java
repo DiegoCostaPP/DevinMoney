@@ -97,8 +97,9 @@ public abstract class Conta {
 		
 		if (saque < this.getSaldo()) {
 			this.setSaldo( this.getSaldo()- saque);
-			
+			System.out.printf("O valor de seu saldo e R$ %.2f %n", this.getSaldo());
 			this.extrato += (java.time.LocalDateTime.now() + " - Saque realizado no valor de " + saque + "\r\n"); // java.time.LocalDateTime.now() função para definir data e hora
+		
 		} else {
 			System.out.println("Seu saldo é insuficiente, sauqe não realizado");
 		}
@@ -116,6 +117,16 @@ public abstract class Conta {
 		System.out.printf("O valor de seu saldo e R$ %.2f %n", this.getSaldo());
 	}
 	public void contaCorrente() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void investimentoFundoImoboliario() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void investimentoCdb() {
 		// TODO Auto-generated method stub
 		
 	}

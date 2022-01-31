@@ -35,7 +35,7 @@ public class ContaCorrente extends Conta {
 			this.setExtrato("Saque realizado no valor de - R$" + saque1);
 		}else if (saque1 < this.getSaldo() + this.getchequeEspecial()){
 			this.setSaldo( ((this.getSaldo() + this.getchequeEspecial())- saque1) * -1);
-			this.setchequeEspecial(this.getchequeEspecial() - saque1);
+			this.setchequeEspecial((this.getchequeEspecial() - saque1)*-1);
 			this.setExtrato("Saque realizado no valor de - R$" + saque1);
 			System.out.println("Seu saldo em conta é R$ " + this.getSaldo());
 			System.out.println("Seu seu cheque especial é R$ " + this.chequeEspecial);

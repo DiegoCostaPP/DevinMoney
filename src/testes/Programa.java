@@ -85,19 +85,17 @@ public class Programa {
 	public static Double numeroDouble () {
 		
 		double renda = 0;
-		//System.out.println("Digite sua renda (ex: 1.245,36  ou 1245,36)");
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
 		boolean a =true;
-		//System.out.println("Digite sua renda (ex: 1.245,36  ou 1245,36)");
-		//renda = sc.nextDouble();
-		
+				
 		while(a == true) {
 			try {
 			 
-				System.out.println("Digite sua renda (ex: 1.245,36  ou 1245,36)");
 				renda = sc.nextDouble();
 				a = false;
+				return renda;
+				
 			} catch(InputMismatchException e) {
 				System.out.println("Você digitou com . no lugar da virgula, ou digitou alugma letra");
 				System.out.println("Digite sua renda conforme exemplo (ex: 1.245,36  ou 1245,36)");
@@ -122,16 +120,17 @@ public class Programa {
 		while(a == true) {
 				
 			try {
-				 
+				if(a == true) { 
 				System.out.println("Digite numero conforme exemplo (ex.: 1)");
 				selecao2 = sc.nextInt();
-				
+				a = false;
+				}
 				
 			} catch(InputMismatchException e) {
 				System.out.println("Você digitou com (. ou ,), ou digitou alugma letra");
 				System.out.println("Digite numero conforme exemplo (ex.: 1)");
 				selecao2 = sc2.nextInt();
-				
+				a = false;
 				return selecao2;
 			}
 		}	
@@ -273,6 +272,41 @@ public class Programa {
 			} catch(InputMismatchException e) {
 				System.out.println("Você digitou com (. ou ,) no lugar da virgula, ou digitou alugma letra");
 				System.out.println("Escolha uma opçcão entre 1 e 8");
+				System.out.println("Digite sua renda conforme exemplo (ex: 1)");
+				selecao2 = sc2.nextInt();
+				a = false;
+				return selecao2;
+			}
+		}	
+		return selecao2;
+	}
+	
+public static int numeroInt1a9 () {
+		
+		int selecao2 = 0;
+		//System.out.println("Digite sua renda (ex: 1.245,36  ou 1245,36)");
+		Scanner sc = new Scanner(System.in);
+		Scanner sc2 = new Scanner(System.in);
+		boolean a =true;
+		//System.out.println("Digite sua renda (ex: 1.245,36  ou 1245,36)");
+		//renda = sc.nextDouble();
+		
+		while(a == true) {
+				
+			try {
+				 
+				System.out.println("Digite sua escolha (ex.: 1)");
+				selecao2 = sc.nextInt();
+				a = false;
+				if(selecao2 > 9) {
+					while (selecao2 > 9) {
+						System.out.println("Escolha uma opçcão entre 1 e 9");
+						selecao2 = sc2.nextInt();
+					}
+				}
+			} catch(InputMismatchException e) {
+				System.out.println("Você digitou com (. ou ,) no lugar da virgula, ou digitou alugma letra");
+				System.out.println("Escolha uma opçcão entre 1 e 9");
 				System.out.println("Digite sua renda conforme exemplo (ex: 1)");
 				selecao2 = sc2.nextInt();
 				a = false;
@@ -486,7 +520,7 @@ public class Programa {
 							case 1:
 								System.out.println("Qual o valor de saque desejado?");
 								double saque = numeroDouble();
-								conta.saque(saque);;																
+								conta.saque(saque);																
 								break;
 							case 2:
 								System.out.println("Qual o valor de deposito desejado?");
@@ -648,9 +682,11 @@ public class Programa {
 						System.out.println("Digite 4 para verificar extrato");
 						System.out.println("Digite 5 para transferncia");
 						System.out.println("Digite 6 para alterar dados cadastrais");
-						System.out.println("Digite 7 para sair");
+						System.out.println("Digite 7 para simulacao investimento CDB");
+						System.out.println("Digite 8 para simulacao investimento Fundo Imobliário");
+						System.out.println("Digite 9 para sair");
 						
-						atividade = numeroInt1a7();
+						atividade = numeroInt1a9();
 						
 						switch (atividade) {
 							case 1:
@@ -704,8 +740,16 @@ public class Programa {
 								conta3.setRenda(renda2);
 								break;
 							case 7:
+								//conta.saque(saque);
+								conta3.investimentoCdb();
+								break;
+							case 8 :
+								conta3.investimentoFundoImoboliario();
+								break;
+							case 9 :
 								System.out.println("Até mais, volte sempre");
 								break;
+							
 						}
 				    //}else {
 				    //	System.out.println("Está conta não existe");

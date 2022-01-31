@@ -15,33 +15,37 @@ public class ContaInvestimento extends Conta {
 				+ "]";
 	}
 	
+	@Override
 	public void investimentoCdb() {
-		double valor, calculo, taxa, periodo;
+		double valor, taxa, periodo;
+		double calculo2 = 0;
 		
-		System.out.println("Qual o valor será investido?");
+		System.out.println("Qual o valor será investido no CDB?");
 		Scanner sc = new Scanner(System.in);
 		valor = sc.nextDouble();
 		taxa = 12 / 100;
 		System.out.printf("Por quantos meses o valor ficará investido?");
 		periodo = sc.nextInt();
 		
-		calculo = (valor * Math.pow(1 + taxa,periodo)); // usado mesma formula da poupança variando apenas a taxa 
+		calculo2 += valor + taxa + 2 / periodo; // usado mesma formula da poupança variando apenas a taxa 
 		
-		System.out.printf("O montante de seu investimento será R$ %.2f %n", calculo);
+		System.out.printf("O montante de seu investimento será R$ %.2f %n", + calculo2);
 		 		
 	}
 	
+	@Override
 	public void investimentoFundoImoboliario() {
-		double valor, calculo, taxa, periodo;
+		double valor, taxa, periodo;
+		double calculo = 0;
 		
-		System.out.println("Qual o valor será investido?");
+		System.out.println("Qual o valor será investido no Fundo Imoboliario?");
 		Scanner sc = new Scanner(System.in);
 		valor = sc.nextDouble();
 		taxa = 9 / 100;
 		System.out.printf("Por quantos meses o valor ficará investido?");
 		periodo = sc.nextInt();
 		
-		calculo = valor * taxa * periodo; 
+		calculo += (valor * (taxa * 3) * periodo); 
 		
 		System.out.printf("O montante de seu investimento será R$ %.2f %n", calculo); 		
 	}
